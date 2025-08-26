@@ -1,22 +1,36 @@
-from collections import Counter
 
 def word_counter(filepath):
     with open(filepath) as file:
         data = file.read()
         word_list = data.split()
         word_count = len(word_list)
-        print(f'{word_count} words found in the document')
+        return(f'{word_count} words found in the document')
 
 def char_counter(filepath):
     
     
     with open(filepath) as file:
         data = file.read()
+        letters = []
+        chars = {}
         l_letters = data.lower()
         letters = list(l_letters)
-        chars = {}
-        chars = dict(letters,0)
-        for letters in chars:
-            chars[letters] = len(letters)
+    
+        for letter in letters:
+            if letter in chars:
+                chars[letter] += 1
+            else:
+                chars[letter] = 1
+        return(chars)
 
-        print(chars)
+def sort_on(item):
+    return item["num"]
+ 
+def sorted_list(sorts_dict):
+    result = []
+    for ch, cnt in sorts_dict.items():
+        result.append({"char": ch, "num": cnt})
+    result.sort(reverse=True, key=sort_on)
+    return (result)
+
+
