@@ -1,26 +1,19 @@
 
-def word_counter(filepath):
-    with open(filepath) as file:
-        data = file.read()
-        word_list = data.split()
+def word_counter(text):
+        word_list = text.split()
         word_count = len(word_list)
-        return(f'{word_count} words found in the document')
+        return word_count
 
-def char_counter(filepath):
-    
-    
-    with open(filepath) as file:
-        data = file.read()
-        letters = []
+def char_counter(text):    
         chars = {}
-        l_letters = data.lower()
-        letters = list(l_letters)
+        l_letters = text.lower()
+       
     
-        for letter in letters:
-            if letter in chars:
-                chars[letter] += 1
+        for char in l_letters:
+            if char in chars:
+                chars[char] += 1
             else:
-                chars[letter] = 1
+                chars[char] = 1
         return(chars)
 
 def sort_on(item):
